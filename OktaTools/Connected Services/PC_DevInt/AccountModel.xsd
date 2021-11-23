@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:gw="http://guidewire.com/xsd" elementFormDefault="qualified" targetNamespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountmodel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../../../../../gw/webservice/pc/pc900/gxmodel/NoteModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.notemodel" />
+  <xs:import schemaLocation="../../../../../gw/webservice/pc/pc900/gxmodel/ContactModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.contactmodel" />
+  <xs:import schemaLocation="../../../../../gw/webservice/pc/pc900/gxmodel/AccountContactModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountcontactmodel" />
+  <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountmodel" name="Account" nillable="true" type="Account" />
+  <xs:complexType name="Account">
+    <xs:sequence>
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountOrgType" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="BusOpsDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndustryCode" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element gw:type="java.lang.String" minOccurs="0" name="Code" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element gw:type="java.util.Date" minOccurs="0" name="OriginationDate" nillable="true" type="xs:dateTime" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="OtherOrgTypeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryLanguage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProducerCodes" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="ProducerCode" nillable="true">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element gw:type="java.lang.String" minOccurs="0" name="Code" nillable="true" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute gw:type="gw.xml.xsd.ArrayAction" name="action" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="StateBureauNum" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.Integer" minOccurs="0" name="YearBusinessStarted" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Notes" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.notemodel" minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="Note" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="OpUnitCode_fmg" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element gw:type="java.lang.String" minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PrimaryActivity_fmg" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element gw:type="java.lang.String" minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.contactmodel" minOccurs="0" name="AccountHolderContact" nillable="true" type="Contact" />
+      <xs:element minOccurs="0" name="AccountType_fmg" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="CCIReviewBy_fmg" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="NewClient_fmg" nillable="true" type="xs:boolean" />
+      <xs:element gw:type="java.util.Date" minOccurs="0" name="CCIReviewDate_fmg" nillable="true" type="xs:dateTime" />
+      <xs:element gw:type="java.util.Date" minOccurs="0" name="OnFarmReviewDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AccountContacts" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountcontactmodel" minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="AccountContact" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="HighValueClientTL_fmg" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute gw:type="gw.xml.xsd.ArrayAction" name="action" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:gw="http://guidewire.com/xsd" elementFormDefault="qualified" targetNamespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountcontactmodel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../../../../../gw/webservice/pc/pc900/gxmodel/AccountModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountmodel" />
+  <xs:import schemaLocation="../../../../../gw/webservice/pc/pc900/gxmodel/ContactModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.contactmodel" />
+  <xs:import schemaLocation="../../../../../gw/webservice/pc/pc900/gxmodel/AccountContactRoleModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountcontactrolemodel" />
+  <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountcontactmodel" name="AccountContact" nillable="true" type="AccountContact" />
+  <xs:complexType name="AccountContact">
+    <xs:sequence>
+      <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountmodel" minOccurs="0" name="Account" nillable="true" type="Account" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="Active" nillable="true" type="xs:boolean" />
+      <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.contactmodel" minOccurs="0" name="Contact" nillable="true" type="Contact" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="ContactRoleRelationship_fmg" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="IsCareOf_fmg" nillable="true" type="xs:boolean" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Roles" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.accountcontactrolemodel" minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="AccountContactRole" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Subtype" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute gw:type="gw.xml.xsd.ArrayAction" name="action" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

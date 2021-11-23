@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:acc="http://www.fmg.co.nz/schema/account/FMG_AccountInfo_v201301" elementFormDefault="unqualified" targetNamespace="http://www.fmg.co.nz/schema/account/FMG_AccountInfo_v201301" xmlns="http://www.w3.org/2001/XMLSchema">
+  <complexType name="AccountType" mixed="true">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="AccountNumber" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="Name" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="MailName" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="Salutation" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="FullAddress" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="Postcode">
+        <simpleType>
+          <restriction base="string">
+            <maxLength value="4" />
+          </restriction>
+        </simpleType>
+      </element>
+      <element minOccurs="0" maxOccurs="unbounded" name="Communication" type="acc:CommunicationType" />
+      <element minOccurs="0" maxOccurs="1" name="Category" nillable="true">
+        <simpleType>
+          <restriction base="string">
+            <length value="1" />
+          </restriction>
+        </simpleType>
+      </element>
+      <element minOccurs="0" maxOccurs="1" name="LastReviewDate" nillable="true" type="date" />
+      <element minOccurs="0" maxOccurs="1" name="Premium" type="decimal" />
+      <element minOccurs="0" maxOccurs="1" name="Opunit" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="ServicedBy" nillable="true" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="NextRenewalDate" type="date" />
+      <element minOccurs="0" maxOccurs="1" name="AdjustedLossRatio" type="decimal" />
+      <element minOccurs="0" maxOccurs="1" name="GWP5Year" type="decimal" />
+      <element minOccurs="0" maxOccurs="1" name="ClaimsPaid5Year" type="decimal" />
+      <element minOccurs="0" maxOccurs="1" name="RiskAdjPercentage" nillable="true" type="decimal" />
+      <element minOccurs="0" maxOccurs="1" name="Policies" type="acc:PoliciesType" />
+    </sequence>
+  </complexType>
+  <element name="AccountDetail" type="acc:AccountType" />
+  <complexType name="CommunicationType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="Type">
+        <simpleType>
+          <restriction base="string">
+            <enumeration value="Home Phone" />
+            <enumeration value="Work Phone" />
+            <enumeration value="Mobile Phone" />
+            <enumeration value="Fax" />
+            <enumeration value="Other Phone" />
+            <enumeration value="Email" />
+            <enumeration value="Other" />
+          </restriction>
+        </simpleType>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="Value" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="PolicyType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="PolicyNumber" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="PolicyType" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="ExpiryDate" type="date" />
+      <element minOccurs="1" maxOccurs="1" name="DiscretionaryAdjPercentage" type="decimal" />
+    </sequence>
+  </complexType>
+  <element name="AccountPolicies" type="acc:PoliciesType" />
+  <complexType name="PoliciesType">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="Policy" type="acc:PolicyType" />
+    </sequence>
+  </complexType>
+  <complexType name="AccountSearchType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="AccountNumber" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="Name" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="FullAddress" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="AccountSearchResultsType">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="Account" type="acc:AccountSearchType" />
+    </sequence>
+  </complexType>
+  <element name="AccountSearchResults" type="acc:AccountSearchResultsType" />
+  <complexType name="PhoneRetType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="PublicID" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="CRMGuid" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="AddressRetType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="PublicID" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="CRMGuid" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="AcctRetType">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="AccountNumber" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="PublicID" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="CRMGuid" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="AccountAddressPublicID" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="AccountAddressCRMGuid" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="ContactRetType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="PublicID" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="CRMGuid" type="string" />
+      <element minOccurs="0" maxOccurs="unbounded" name="ContactPhone" type="acc:PhoneRetType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="ContactAddress" type="acc:AddressRetType" />
+    </sequence>
+  </complexType>
+  <complexType name="AddAccountID">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="AccountIDReturn" type="acc:AcctRetType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="ContactIDReturn" type="acc:ContactRetType" />
+    </sequence>
+  </complexType>
+  <element name="AddAccountReturn" type="acc:AddAccountID" />
+  <complexType name="CRMPhoneNumber">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="PhoneNumber" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="PhoneType" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="CRMGuid" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="PhNumCollection">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="PhNums" type="acc:CRMPhoneNumber" />
+    </sequence>
+  </complexType>
+  <element name="CRMPhoneNos" type="acc:PhNumCollection" />
+  <complexType name="CRMAddress">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="AddressStreet1" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="AddressCity" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="CRMGuid" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="AddressCollection">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="Addresses" type="acc:CRMAddress" />
+    </sequence>
+  </complexType>
+  <element name="CRMAddresses" type="acc:AddressCollection" />
+</schema>

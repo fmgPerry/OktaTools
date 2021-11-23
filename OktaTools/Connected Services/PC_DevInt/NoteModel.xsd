@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:gw="http://guidewire.com/xsd" elementFormDefault="qualified" targetNamespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.notemodel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.notemodel" name="Note" nillable="true" type="Note" />
+  <xs:complexType name="Note">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element gw:type="java.lang.String" minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element gw:type="java.util.Date" minOccurs="0" name="AuthoringDate" nillable="true" type="xs:dateTime" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="Confidential" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.Long" minOccurs="0" name="LoadCommandID" nillable="true" type="xs:long" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecurityType" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Topic" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="Priority" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Account" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element gw:type="java.lang.String" minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="RenewalConversation_fmg" nillable="true" type="xs:boolean" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="AttemptedContact_fmg" nillable="true" type="xs:boolean" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="DeclinedOnFarmReview_fmg" nillable="true" type="xs:boolean" />
+      <xs:element gw:type="java.util.Date" minOccurs="0" name="ReviewDate" nillable="true" type="xs:dateTime" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="EmailContact_fmg" nillable="true" type="xs:boolean" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="FarmVisit_fmg" nillable="true" type="xs:boolean" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="OnFarmReview_fmg" nillable="true" type="xs:boolean" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="PhoneCall_fmg" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute gw:type="gw.xml.xsd.ArrayAction" name="action" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

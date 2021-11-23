@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:gw="http://guidewire.com/xsd" elementFormDefault="qualified" targetNamespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.phone_fmgmodel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc900.gxmodel.phone_fmgmodel" name="Phone_fmg" nillable="true" type="Phone_fmg" />
+  <xs:complexType name="Phone_fmg">
+    <xs:sequence>
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="PublicID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneType" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.String" minOccurs="0" name="ContactNote" nillable="true" type="xs:string" />
+      <xs:element gw:type="java.lang.Boolean" minOccurs="0" name="PrimaryPhone" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute gw:type="gw.xml.xsd.ArrayAction" name="action" type="xs:string" />
+  </xs:complexType>
+</xs:schema>
